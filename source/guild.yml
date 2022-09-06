@@ -1,0 +1,467 @@
+- config: bilevel-base
+  operations:
+    run:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+    bioptwsyes:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        J: 'T'
+        K: 'T'
+        reverse_lr_start: 'inner_lr_start'
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptwsyesv2:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        J: 'K'
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptwsno:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: False
+        warm_start_linsys: False
+        J: 'T'
+        K: 'T'
+        reverse_lr_start: 'inner_lr_start'
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptgammawsno:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: False
+        warm_start_linsys: False
+        J: 'T'
+        K: 'T'
+        reverse_lr_start: 'inner_lr_start'
+        reverse_lr_gamma: 'inner_lr_gamma'
+        T_inc_rate: null
+    bioptgammawsnov2:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: False
+        warm_start_linsys: False
+        J: 'K'
+        T_inc_rate: null
+    stochbiold:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: False
+        J: 'T'
+        K: 'T'
+        reverse_lr_start: 'inner_lr_start'
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    stochbio:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: False
+        J: 'K'
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    stochbiobs90:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: False
+        J: 1
+        train_batch_size: loguniform[90:45e3]
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    doubleloop:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: False
+        J: 1
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    alset:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: False
+        J: 1
+        T: 1
+        reverse_lr_gamma: null
+        inner_lr_gamma: null
+        T_inc_rate: null
+    alsetwslin:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        J: 1
+        T: 1
+        K: 1
+        reverse_lr_start: 'inner_lr_start'
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    alsetwslinv2:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        J: 1
+        T: 1
+        K: 1
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptgammaTinclin:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: False
+        warm_start_linsys: False
+        T: 'inc_lin'
+        J: 'T'
+        K: 'T'
+        K_inc_rate: 'T_inc_rate'
+        J_inc_rate: 'T_inc_rate'
+        reverse_lr_start: 'inner_lr_start'
+        reverse_lr_gamma: 'inner_lr_gamma'
+    bioptgammaTinclinwsyes:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        T: 'inc_lin'
+        J: 'T'
+        K: 'T'
+        K_inc_rate: 'T_inc_rate'
+        J_inc_rate: 'T_inc_rate'
+        reverse_lr_start: 'inner_lr_start'
+        reverse_lr_gamma: 'inner_lr_gamma'
+    bioptdet:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: False
+        warm_start_linsys: False
+        J: 1
+        train_batch_size: -1
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptdetv2:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        J: 1
+        T: 1
+        K: 1
+        reverse_lr_start: 'inner_lr_start'
+        train_batch_size: -1
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptdetws:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        J: 1
+        T: 1
+        K: 1
+        train_batch_size: -1
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptdetwsv2:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        J: 1
+        T: 1
+        K: 1
+        reverse_lr_start: 'inner_lr_start'
+        train_batch_size: -1
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptdetwsv3rand:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: True
+        warm_start_linsys: True
+        J: 'K'
+        T: loguniform[1:10]
+        K: loguniform[1:10]
+        train_batch_size: -1
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+    bioptdetv3rand:
+      main: '{{ main }}'
+      flags:
+        $include: '{{ flags }}'
+        warm_start: False
+        warm_start_linsys: False
+        J: 'K'
+        T: loguniform[1:10]
+        K: loguniform[1:10]
+        train_batch_size: -1
+        inner_lr_gamma: null
+        T_inc_rate: null
+        reverse_lr_gamma: null
+
+
+- config: flagspoison
+  flags:
+    mnist_path: '/home/riccardo/deploy/hyperexperiments/data'
+    save_params: False
+    n_checkpoints:
+    exp_name:
+    subsample:
+    algo_seed:
+    data_seed:
+    dataset:
+    val_size:
+    budget:
+    budget_mode:
+    hypergradient_mode:
+    outer_opt:
+    outer_lr:
+    outer_mu:
+    inner_opt_class:
+    inner_lr_start:
+    inner_lr_gamma:
+    inner_mu:
+    reverse_lr_start:
+    reverse_lr_gamma:
+    reverse_mu:
+    T:
+    K:
+    J:
+    T_inc_rate:
+    K_inc_rate:
+    J_inc_rate:
+    tol:
+    warm_start:
+    warm_start_linsys:
+    bias:
+    reg_param:
+    poison_size:
+    poison_init_type:
+    poison_constraint_type:
+    poison_max_linf_norm:
+    poison_max_l2_norm:
+    poison_max_l1_norm:
+    train_batch_size:
+    val_batch_size:
+    inner_lr_final:
+    inner_mu_final:
+    reg_param_final:
+    train_val_batch_size:
+    use_cuda:
+    n_gpu:
+
+- config: flagsrsrpoison
+  flags:
+    $include: flagspoison
+    biopt_type: 'SGD'
+    dataset: 'mnist'
+    data_seed: 2
+    algo_seed: 2
+#    budget: 10000000
+#    train_batch_size: 900
+#    inner_lr_start: loguniform[1e-3:1e2]
+#    inner_lr_gamma: loguniform[10:1000]
+#    reverse_lr_start: loguniform[1e-3:1e2]
+#    reverse_lr_gamma: loguniform[10:1000]
+#    T: loguniform[5:500]
+#    K: loguniform[5:500]
+#    J: loguniform[5:500]
+#    T_inc_rate: loguniform[1e-2:1e2]
+#    outer_lr: loguniform[1e2:1e8]
+# Values for train_batch_size=90
+    budget: 2000000
+    budget_mode: gradients
+    #    budget: 50
+#    budget_mode: time
+    train_batch_size: 90
+    inner_lr_start: loguniform[1e-4:1e1]
+    inner_lr_gamma: loguniform[10:10000]
+    reverse_lr_start: loguniform[1e-4:1e1]
+    reverse_lr_gamma: loguniform[10:10000]
+    T: loguniform[10:10000]
+    K: loguniform[10:10000]
+    J: loguniform[10:10000]
+    T_inc_rate: loguniform[1e-2:1e2]
+    outer_lr: loguniform[1e3:1e9]
+
+
+- model: poison
+  extends: bilevel-base
+  params:
+    main: poisoning
+    flags: flagspoison
+
+- model: poisonsearch
+  extends: bilevel-base
+  params:
+    main: poisoning
+    flags: flagsrsrpoison
+
+  optimizers:
+    gp:
+      random-starts: 20
+      noise: 1e-10 # setting it to zero can cause instability issues
+      max-trials: 200
+      xi: 0.01
+      random_state: 0  # for reproducibility
+      acq-func: "EI"
+      n_restarts_optimizer: 30
+      n_jobs: 5
+
+
+
+- model: meta
+  operations:
+    run:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+    checkparallel:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        meta-batch-size: 32
+        n-parallel-tasks: [ 2, 4, 8, 16, 32 ]
+    seeds:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        T: 10
+        K: 10
+        seed: [0,1,2,3,4]
+    batchsizes:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        seed: [0,1,2,3,4]
+#        seed: 4
+        warm-start: "No"
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        T: 10
+        K: 10
+        T-test: 10
+#        meta-batch-size: [8, 16, 32]
+        meta-batch-size: [1, 2, 4]
+#        n-outer-iter: 6000
+        n-outer-iter: 100000000000000000000
+        max-budget: 50000
+
+    naivewsseeds:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        T: 10
+        K: 10
+        warm-start: "Naive"
+        seed: [0,1,2,3,4]
+    grid:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        T: 10
+        K: 10
+        outer-lr: [0.001,0.002, 0.004]
+        inner-lr: [0.025, 0.05, 0.1]
+    gridwarmstart:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        warm-start: "Naive"
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        T: 10
+        K: 10
+        outer-lr: [0.0005,0.001,0.002]
+        inner-lr: [0.025, 0.05, 0.1]
+    gridfewtraintasks:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        n-train-tasks: 1024
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        T: 10
+        K: 10
+        outer-lr: [0.001,0.002, 0.004]
+        inner-lr: [0.025, 0.05, 0.1]
+    gridfewtraintaskswarmstart:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        n-train-tasks: 1024
+        warm-start: "Full"
+        T: 10
+        K: 10
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        outer-lr: [0.001,0.002, 0.004]
+        inner-lr: [0.025, 0.05, 0.1]
+    fewtraintaskswarmstartseeds:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        n-train-tasks: 1024
+        warm-start: "Full"
+        T: 10
+        K: 10
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        seed: [0,1,2,3,4]
+    fewtraintasksseeds:
+      main: meta_learning_parallel
+      flags-import: all
+      flags:
+        n-train-tasks: 1024
+        warm-start: "No"
+        T: 10
+        K: 10
+        T-test: 10
+        data-dir: "/home/riccardo/deploy/hyperexperiments/data"
+        seed: [0,1,2,3,4]
+
+
+
+
