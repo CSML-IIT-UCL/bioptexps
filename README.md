@@ -26,10 +26,13 @@ Details on the experimental settings can be found in [the paper](https://arxiv.o
 If you use this code, please cite [our paper](https://arxiv.org/abs/2202.03397).
 
 ```
-@article{grazzi2022bilevel,
+@article{grazzi2023bilevel,
   title={Bilevel Optimization with a Lower-level Contraction: Optimal Sample Complexity without Warm-Start},
   author={Grazzi, Riccardo and Pontil, Massimiliano and Salzo, Saverio},
-  journal={arXiv preprint arXiv:2202.03397},
-  year={2022}
+  journal={Journal of Machine Learning Research},
+  volume={24},
+  number={167},
+  pages={1--37},
+  year={2023}
 }
 ```
